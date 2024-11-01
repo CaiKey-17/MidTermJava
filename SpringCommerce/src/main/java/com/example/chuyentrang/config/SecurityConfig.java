@@ -28,7 +28,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/css/**", "/js/**", "/images/**","/assets/**").permitAll()
-                        .requestMatchers("/login", "/", "/payment", "/tops", "/bottoms", "/bags", "/outerwears", "/detail/**", "/invoice/**", "/invoice/order","/invoice","/forgot","/sua/**").permitAll()
+                        .requestMatchers("/login", "/", "/payment", "/tops", "/bottoms", "/bags", "/outerwears", "/detail/**", "/invoice/**", "/invoice/order","/invoice","/forgot").permitAll()
+                        .requestMatchers("/sua/**","/admin", "/loaisanpham","/sanpham","/mausac","/kichco","/donhang","/change").authenticated()
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin

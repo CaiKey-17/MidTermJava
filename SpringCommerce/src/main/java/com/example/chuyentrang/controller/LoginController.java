@@ -50,7 +50,7 @@ public class LoginController {
         try {
             customUserDetailsService.resetPasswordToDefault(email);
 
-            String message = "Mật khẩu mới là: 111\nVui lòng không chỉa sẻ cho ai";
+            String message = "Mật khẩu mới là: 111\nVui lòng không chia sẻ cho ai";
             emailService.sendSimpleEmail(email, "Khôi phục mật khẩu", message);
 
             return "redirect:/login?resetSuccess=true";

@@ -347,7 +347,7 @@ public class HomeController {
             return "error";
         }
         model.addAttribute("product", product);
-        model.addAttribute("aboutInfo", clothesService.getAllClothes());
+        model.addAttribute("aboutInfo", clothesService.getClothesByBrandId(product.getBrand().getId()));
 
         return "detail";
     }
