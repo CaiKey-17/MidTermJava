@@ -112,7 +112,21 @@ public class InvoiceController {
                 .append("<p>Cảm ơn bạn đã mua hàng!</p>");
 
         emailService.sendInvoiceEmail(email, "Xác nhận hoá đơn từ NCK SHOP", body.toString());
+        StringBuilder body1 = new StringBuilder();
+        body1.append("<h1>Thông báo đơn hàng mới</h1>")
+                .append("<p>Chào bạn!</p>")
+                .append("<p>Bạn có một đơn hàng mới cần duyệt.</p>")
+                .append("<p>Thông tin khách hàng:</p>")
+                .append("<p>Tên: ").append(name).append("</p>")
+                .append("<p>Email: ").append(email).append("</p>")
+                .append("<p>Số điện thoại: ").append(phone).append("</p>")
+                .append("<p>Địa chỉ: ").append(address).append("</p>")
+                .append("<p>Tổng hoá đơn: ").append(total).append("</p>")
+                .append("<p>Vui lòng duyệt đơn hàng tại: <a href='http://localhost:8080/donhang'>Xem đơn hàng</a></p>")
+                .append("<p>Cảm ơn!</p>");
 
+        // Gửi email cho quản trị viên
+        emailService.sendInvoiceEmail("caoky.sonha@gmail.com", "Xác nhận đơn hàng mới", body1.toString());
         return "Hóa đơn đã được gửi qua email!";
     }
 
