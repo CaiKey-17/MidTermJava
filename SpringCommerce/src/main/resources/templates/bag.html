@@ -30,7 +30,7 @@
 
             <div th:insert="fragments/header :: header"></div>
 
-            <div th:insert="fragments/bagbody :: main"></div>
+            <div th:insert="fragments/bottombody :: main"></div>
 
 
             <div th:insert="fragments/chaychu"></div>
@@ -73,13 +73,13 @@
 
 function filterByPrice() {
     const priceFilter = document.getElementById('price-filter').value;
-    let url = `/bags?priceRange=${priceFilter}`;
+    let url = `/bottoms?priceRange=${priceFilter}`;
     window.location.href = url; // Chuyển hướng đến trang lọc
 }
 
 function sortProducts() {
     const sortOrder = document.querySelector('.sort-by').value;
-    let url = `/bags?sortOrder=${sortOrder}`;
+    let url = `/bottoms?sortOrder=${sortOrder}`;
     window.location.href = url; // Chuyển hướng đến trang sắp xếp
 }
 

@@ -13,6 +13,9 @@
 
     var arrLanguage = {
             en: {
+            phan_loai_theo_size:"Filter by size",
+            hong_nhat:"Pinkkk",
+            phan_loai_theo_mau:"Filter by color",
                 mua_ngay: "BUY NOW",
                 them_vao_gio: "ADD TO CART",
                 thong_tin:"INFORMATION",
@@ -77,12 +80,23 @@
                 phan_loai_theo_gia: "Filter by price",
                 duoi_500k: "Under 500k",
                  duoi_1_trieu: "Under 1M",
-                            mot_trieu_st: "Above 1M",
-                            tat_ca: "All"
+                mot_trieu_st: "Above 1M",
+                tat_ca: "All",
+                hong_nhat:"Pink",
+                xanh:"Blue",
+                xam:"Grey",
+                den:"Black",
+                vang:"Yellow"
             },
             vi: {
+             hong_nhat:"Hồng nhạt",
+                                     xanh:"Xanh dương",
+                                     xam:"Xám",
+                                     den:"Đen",
+                                     vang:"Vàng",
                             tat_ca: "Tất cả",
-
+phan_loai_theo_size:"Phân loại theo kích cỡ",
+phan_loai_theo_mau:"Phân loại theo màu",
             phan_loai_theo_gia: "Phân theo loại giá",
             duoi_500k: "Dưới 500k",
             duoi_1_trieu: "Dưới 1 triệu",
