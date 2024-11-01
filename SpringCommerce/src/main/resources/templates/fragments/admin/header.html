@@ -1,3 +1,5 @@
+
+
 <nav class="navbar default-layout col-lg-12 col-12 p-0 d-flex align-items-top flex-row pt-5 mt-3"
      xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -29,12 +31,15 @@
                     <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="Profile image"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 
-                    <form action="/change" method="get" th:action="@{/change}">
-                        <button type="submit">Đổi mật khẩu</button>
-                    </form>
-                    <form action="/logout" method="post" th:action="@{/logout}">
+                    <a class="dropdown-item" href="/change" th:href="@{/change}">
+                        <i class="dropdown-item-icon mdi mdi-lock-outline text-primary me-2"></i> Đổi mật khẩu
+                    </a>
+                    <a class="dropdown-item" href="/logout" th:href="@{/logout}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="dropdown-item-icon mdi mdi-logout text-primary me-2"></i> Đăng xuất
+                    </a>
+                    <form id="logout-form" action="/logout" method="post" style="display: none;">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <button type="submit">Đăng xuất</button>
                     </form>
 
 

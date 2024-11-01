@@ -7,6 +7,7 @@ import com.example.chuyentrang.service.ClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,7 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/clothes")
 public class ClothesController {
 
@@ -27,15 +28,49 @@ public class ClothesController {
     public ClothesController(ClothesService clothesService) {
         this.clothesService = clothesService;
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<Clothes> updateProduct(@PathVariable int id, @RequestBody Clothes product) {
-        Clothes updatedProduct = clothesService.updateProduct(id, product);
-        return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
+
+
+    @PostMapping("/{id}")
+    public String updateProduct(
+            @PathVariable int id,
+            @RequestParam("name") String name,
+            @RequestParam("material") String material,
+            @RequestParam("content") String content,
+            @RequestParam("detail") String detail,
+            @RequestParam("price") double price,
+            @RequestParam("quantity") int quantity,
+            @RequestParam(value = "image", required = false) MultipartFile image,
+            @RequestParam(value = "imagehover", required = false) MultipartFile imagehover) {
+
+        Clothes existingProduct = clothesService.getClothesById(id);
+
+        existingProduct.setName(name);
+        existingProduct.setMaterial(material);
+        existingProduct.setContent(content);
+        existingProduct.setDetail(detail);
+        existingProduct.setPrice(price);
+        existingProduct.setQuantity(quantity);
+
+        if (image != null && !image.isEmpty()) {
+            existingProduct.setImage(image.getOriginalFilename());
+        } else {
+            existingProduct.setImage(existingProduct.getImage());
+        }
+
+        if (imagehover != null && !imagehover.isEmpty()) {
+            existingProduct.setImagehover(imagehover.getOriginalFilename());
+        } else {
+            existingProduct.setImagehover(existingProduct.getImagehover());
+        }
+
+        Clothes updatedProduct = clothesService.updateProduct(id, existingProduct);
+        return "redirect:/sanpham";
     }
 
 
+
     @PostMapping
-    public Clothes createClothes(@RequestParam("name") String name,
+    public String createClothes(@RequestParam("name") String name,
                                  @RequestParam("material") String material,
                                  @RequestParam("detail") String detail,
                                  @RequestParam("content") String content,
@@ -68,18 +103,11 @@ public class ClothesController {
         Brand brand = brandService.getBrand(brandId)
                 .orElseThrow(() -> new IllegalArgumentException("Thương hiệu không tồn tại với ID: " + brandId));
 
-        Clothes clothes = new Clothes();
-        clothes.setName(name);
-        clothes.setMaterial(material);
-        clothes.setDetail(detail);
-        clothes.setContent(content);
-        clothes.setPrice(price);
-        clothes.setQuantity(quantity);
-        clothes.setImage(imageFileName);
-        clothes.setImagehover(imageHoverFileName);
-        clothes.setBrand(brand);
+        Clothes clothes = new Clothes(name,material,detail,content,price,quantity,imageFileName,imageHoverFileName,brand);
 
-        return clothesService.saveClothes(clothes);
+        clothesService.saveClothes(clothes);
+
+        return "redirect:/sanpham";
     }
 
 

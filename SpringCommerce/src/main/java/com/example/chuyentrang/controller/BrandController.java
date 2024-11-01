@@ -4,11 +4,12 @@ import com.example.chuyentrang.model.Brand;
 import com.example.chuyentrang.service.BrandService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@RestController
+@Controller
 @RequestMapping("/brands")
 public class BrandController {
     private final BrandService brandService;
@@ -16,13 +17,14 @@ public class BrandController {
     public BrandController(BrandService brandService) {
         this.brandService = brandService;
     }
+
     @PostMapping
-    public ResponseEntity<String> addBrand(@RequestBody Brand brand) {
-        String response = brandService.addBrand(brand);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public String addBrand(@RequestBody Brand brand) {
+        brandService.addBrand(brand);
+        return "redirect:/loaisanpham";
     }
 
-    @GetMapping("/{id}")
+        @GetMapping("/{id}")
     public ResponseEntity<Brand> getBrand(@PathVariable int id) {
         Optional<Brand> brand = brandService.getBrand(id);
         return brand.map(ResponseEntity::ok)

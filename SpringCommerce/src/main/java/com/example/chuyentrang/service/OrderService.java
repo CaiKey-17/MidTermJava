@@ -2,6 +2,7 @@ package com.example.chuyentrang.service;
 
 import com.example.chuyentrang.model.Order;
 import com.example.chuyentrang.repository.OrderRepository;
+import com.example.chuyentrang.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,12 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+
+    private final UserRepository userRepository;
+
+    public OrderService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public Order addOrder(Order order){
         return orderRepository.save(order);
@@ -35,5 +42,10 @@ public class OrderService {
         order.setProcess(1);
         return orderRepository.save(order);
     }
+
+    public boolean isEmailExists(String email) {
+        return userRepository.findByEmail(email).isPresent();
+    }
+
 
 }

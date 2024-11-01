@@ -114,6 +114,10 @@ public class ClothesService {
     }
 
 
+    public List<Clothes> getLatestClothes() {
+        return clothesRepository.findTop8ByOrderByCreatedDateDesc();
+    }
+
 
 }
 

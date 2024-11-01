@@ -3,6 +3,8 @@ package com.example.chuyentrang.model;
 
 import com.example.chuyentrang.service.BrandService;
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Entity
@@ -22,6 +24,17 @@ public class Clothes {
     private String image;
     private String imagehover;
 
+    @Column(name = "created_date", nullable = false)
+    private LocalDateTime createdDate;
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
     public Clothes(String name, String material, String content, String detail, Double price, int quantity, String image, String imagehover, Brand brand) {
         this.name = name;
         this.material = material;
@@ -32,6 +45,7 @@ public class Clothes {
         this.image = image;
         this.imagehover = imagehover;
         this.brand = brand;
+        this.createdDate = LocalDateTime.now();
     }
 
     @ManyToOne

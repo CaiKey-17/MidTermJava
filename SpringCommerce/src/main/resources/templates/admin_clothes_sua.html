@@ -74,7 +74,10 @@
     /* CSS như bạn đã có */
 </style>
 
-<form id="clothesForm" action="/clothes" method="PUT" enctype="multipart/form-data"  xmlns:th="http://www.w3.org/1999/xhtml">
+<form id="clothesForm" th:action="@{/clothes/{id}(id=${product.id})}" method="POST" enctype="multipart/form-data" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <input type="hidden" name="id" th:value="${product.id}">
+
     <label for="clothesName">Tên Quần áo:</label>
     <input type="text" id="clothesName" name="name" required th:value="${product.name}">
 
@@ -106,32 +109,25 @@
         <button type="button" class="back-button" onclick="window.history.back();">Quay về</button>
     </div>
 </form>
-<!--<script>-->
-<!--    function handleFormSubmit() {-->
-<!--        const fields = [-->
-<!--            { name: 'oldImage', id: 'image', oldValue: "${product.image}" },-->
-<!--            { name: 'oldImagehover', id: 'imagehover', oldValue: "${product.imagehover}" },-->
-<!--            { name: 'name', id: 'clothesName', oldValue: "${product.name}" },-->
-<!--            { name: 'material', id: 'material', oldValue: "${product.material}" },-->
-<!--            { name: 'content', id: 'content', oldValue: "${product.content}" },-->
-<!--            { name: 'detail', id: 'detail', oldValue: "${product.detail}" },-->
-<!--            { name: 'price', id: 'price', oldValue: "${product.price}" },-->
-<!--            { name: 'quantity', id: 'quantity', oldValue: "${product.quantity}" }-->
-<!--        ];-->
 
-<!--        fields.forEach(field => {-->
-<!--            const inputElement = document.getElementById(field.id);-->
-<!--            if (!inputElement.files || !inputElement.files.length) {-->
-<!--                // Nếu không có tệp mới được chọn, thêm trường ẩn với giá trị cũ-->
-<!--                const hiddenInput = document.createElement('input');-->
-<!--                hiddenInput.type = 'hidden';-->
-<!--                hiddenInput.name = field.name;-->
-<!--                hiddenInput.value = field.oldValue;-->
-<!--                document.getElementById('clothesForm').appendChild(hiddenInput);-->
-<!--            }-->
-<!--        });-->
+<script>
+    document.getElementById('clothesForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn hành động submit mặc định
 
-<!--        return true; // Cho phép gửi biểu mẫu-->
-<!--    }-->
-<!--</script>-->
+        // Lấy giá trị từ các trường trong form
+        const formData = new FormData(this); // Lấy dữ liệu từ form
+        const data = {};
+
+        formData.forEach((value, key) => {
+            data[key] = value; // Chuyển đổi FormData thành đối tượng
+        });
+
+        // Log thông tin ra console
+        console.log("Thông tin sản phẩm:", data);
+
+        // Nếu muốn tiếp tục submit form, bạn có thể bỏ comment dòng dưới đây
+        this.submit();
+    });
+</script>
+
 

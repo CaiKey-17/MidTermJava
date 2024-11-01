@@ -8,6 +8,7 @@ import com.example.chuyentrang.service.BrandService;
 import com.example.chuyentrang.service.ClothesService;
 import com.example.chuyentrang.service.ColorSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-@RestController
+@Controller
 @RequestMapping("/colors")
 public class ColorController {
 
@@ -33,7 +34,7 @@ public class ColorController {
     }
 
     @PostMapping
-    public Color createClothes(@RequestParam("name") String name,
+    public String createClothes(@RequestParam("name") String name,
                                @RequestParam("image") MultipartFile imageFile,
                                @RequestParam("color_code") String color_code,
                                @RequestParam("name_color") String name_color,
@@ -66,6 +67,8 @@ public class ColorController {
         color.setNameColor(name_color);
         color.setClothes(clothes);
 
-        return colorSerivce.saveColor(color);
+        colorSerivce.saveColor(color);
+        return "redirect:/mausac";
+
     }
 }

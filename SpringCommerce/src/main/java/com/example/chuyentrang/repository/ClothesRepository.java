@@ -34,4 +34,7 @@ public interface ClothesRepository extends JpaRepository<Clothes,Integer> {
     @Query("SELECT DISTINCT c FROM Clothes c JOIN c.colors color WHERE color.nameColor = :colorName AND c.brand.id = :brandId")
     Page<Clothes> findByColorNameColorAndBrandId(@Param("colorName") String colorName, @Param("brandId") int brandId, Pageable pageable);
 
+
+    @Query(value = "SELECT c FROM Clothes c ORDER BY c.createdDate DESC LIMIT 8")
+    List<Clothes> findTop8ByOrderByCreatedDateDesc();
 }

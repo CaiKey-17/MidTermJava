@@ -7,6 +7,7 @@ import com.example.chuyentrang.service.ClothesService;
 import com.example.chuyentrang.service.ColorSerivce;
 import com.example.chuyentrang.service.SizeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-@RestController
+@Controller
 @RequestMapping("/sizes")
 public class SizeController {
     private SizeService sizeService;
@@ -31,7 +32,7 @@ public class SizeController {
     }
 
     @PostMapping
-    public Size createClothes(@RequestParam("name") String name,
+    public String createClothes(@RequestParam("name") String name,
                                @RequestParam("clothesId") Integer clothesId) throws Exception {
 
         Clothes clothes = clothesService.getClothes(clothesId)
@@ -39,6 +40,8 @@ public class SizeController {
         Size size = new Size();
         size.setName(name);
         size.setClothes(clothes);
-        return sizeService.saveSize(size);
+        sizeService.saveSize(size);
+        return "redirect:/kichco";
+
     }
 }

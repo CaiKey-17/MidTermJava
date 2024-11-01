@@ -16,6 +16,9 @@
                 <input id="email" type="email" name="email" placeholder="Enter your email" required />
                 <button type="submit">Reset Password</button>
             </form>
+            <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+                <span th:text="${errorMessage}"></span>
+            </div>
         </div>
     </div>
 </section>
