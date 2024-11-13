@@ -127,13 +127,13 @@ public class ClothesController {
         }
         return ResponseEntity.notFound().build();
     }
-
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteClothes(@PathVariable int id) {
+    public String deleteClothes(@PathVariable int id) {
         clothesService.deleteClothes(id);
-        return ResponseEntity.noContent().build();
+        return "redirect:/sanpham";
     }
+
+   
 
     @GetMapping("/brand/{brandId}")
     public ResponseEntity<List<Clothes>> getClothesByBrandId(@PathVariable int brandId) {
