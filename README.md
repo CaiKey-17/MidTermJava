@@ -15,8 +15,22 @@ SpringCommerce là một ứng dụng mua sắm trực tuyến đơn giản, h�
 - Repository Pattern: Cung cấp lớp trung gian giữa ứng dụng và cơ sở dữ liệu, giúp dễ dàng kiểm soát các truy vấn dữ liệu. Các lớp Repository thực hiện các thao tác truy xuất dữ liệu từ cơ sở dữ liệu và có thể mở rộng khi cần thêm các thao tác truy vấn phức tạp hơn.
 - Service Layer Pattern: Tầng Service chịu trách nhiệm xử lý các nghiệp vụ chính của ứng dụng. Tầng này đảm bảo rằng các nghiệp vụ được tách biệt khỏi lớp Controller, giúp Controller trở nên nhẹ nhàng và chỉ tập trung vào việc nhận/gửi yêu cầu và trả về dữ liệu. Service cũng là nơi kiểm soát luồng xử lý, thực hiện kiểm tra và xử lý logic trước khi gửi yêu cầu đến lớp Repository hoặc xử lý dữ liệu nhận về từ Repository.
 - Model: Trong ứng dụng này, Model đại diện cho các thực thể trong cơ sở dữ liệu. Các lớp Model sẽ được ánh xạ trực tiếp vào các bảng trong cơ sở dữ liệu, ví dụ như Product, Customer, Order, v.v. Mỗi thực thể này sẽ có các thuộc tính tương ứng với các cột trong bảng cơ sở dữ liệu và sẽ được sử dụng để thực hiện các thao tác CRUD thông qua Repository.
- 
-## 2. Cấu Trúc Code
+## 2. Thiết kế
+### 2.1 Thiết kế database
+#### Sơ đồ ERD
+![ERD_Midterm_java](https://github.com/user-attachments/assets/1cecd6dc-5083-49c1-a513-083a6103844e)
+#### Mô hình quan hệ
+![image (16)](https://github.com/user-attachments/assets/0219b6b5-d0bc-4ece-b931-fb41e68b2a1a)
+### 2.2 Thiết kế hệ thống
+Ứng dụng SpringCommerce có các thành phần và cơ sở hạ tầng chính như sau:
+- Frontend: UI (User Interface): Trang web để người dùng xem sản phẩm, giỏ hàng, và đặt hàng.
+- Framework: Dùng Thymleaf & Boostrap,HTML5 để tạo giao diện người dùng.
+- Backend: Spring Boot Application: Chịu trách nhiệm cung cấp các API để xử lý yêu cầu từ người dùng.
+- Các Modules của Spring: Bao gồm Spring MVC để quản lý các yêu cầu HTTP, Spring Data JPA để giao tiếp với cơ sở dữ liệu, và Spring Security để bảo vệ ứng dụng.
+- Database MySQL: Lưu trữ dữ liệu về sản phẩm, khách hàng, đơn hàng và các thông tin khác.
+
+
+## 3. Cấu Trúc Code
 /src/main/java/com/example/chuyentrang. Trong đó:
 - controller: Chứa các lớp Controller để xử lý các yêu cầu HTTP từ người dùng.
 - service: Chứa các lớp Service xử lý nghiệp vụ cho ứng dụng.
@@ -24,7 +38,7 @@ SpringCommerce là một ứng dụng mua sắm trực tuyến đơn giản, h�
 - model: Chứa các lớp đại diện cho các thực thể (Entity) trong cơ sở dữ liệu như Product, Customer, Order, v.v.
 - config: Chứa các cấu hình bảo mật (Spring Security) và các cấu hình khác của ứng dụng.
 
-## 3. Các Bước Chạy Ứng Dụng Trên Máy Tính Cá Nhân
+## 4. Các Bước Chạy Ứng Dụng Trên Máy Tính Cá Nhân
 
 ### Yêu cầu
 - Java JDK: Phiên bản 11 trở lên.
@@ -81,7 +95,7 @@ String rawPassword = "...";
 mvn clean install
 mvn spring-boot:run
 ```
-### 4. Postman Snapshots để Kiểm Tra API
+## 5. Postman Snapshots để Kiểm Tra API
 ##### Xem giao diện trang chủ:
 - Test API:
 ![image](https://github.com/user-attachments/assets/88d82d05-34cf-487d-872a-2b4dcf2a3588)
@@ -454,5 +468,4 @@ Khách hàng - Kết quả nhận được bên email:
 
 
 
-![ERD_Midterm_java](https://github.com/user-attachments/assets/1cecd6dc-5083-49c1-a513-083a6103844e)
 
