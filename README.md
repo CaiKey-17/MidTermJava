@@ -32,13 +32,18 @@ SpringCommerce là một ứng dụng mua sắm trực tuyến đơn giản, h�
 
 
 ## 3. Cấu Trúc Code
+### Backend
 /src/main/java/com/example/chuyentrang. Trong đó:
 - controller: Chứa các lớp Controller để xử lý các yêu cầu HTTP từ người dùng.
 - service: Chứa các lớp Service xử lý nghiệp vụ cho ứng dụng.
 - repository: Chứa các lớp repository (DAO) để truy xuất và lưu trữ dữ liệu từ cơ sở dữ liệu.
 - model: Chứa các lớp đại diện cho các thực thể (Entity) trong cơ sở dữ liệu như Product, Customer, Order, v.v.
 - config: Chứa các cấu hình bảo mật (Spring Security) và các cấu hình khác của ứng dụng.
-
+### Frontend
+/src/main/resources. Trong đó:
+- static: chứa các thành phần tĩnh như các file js,css,data,... phục vụ cho việc cung cấp các tính năng và thiết kế các thành phần của giao diện.
+- templates: chứa các file html, sử dụng cơ chế Thymleaf để thực hiện các công việc đẩy dữ liệu từ phía Backend hiển thị lên giao diện, dùng để import các thành phần trong static vào.
+- application.properties và application.yaml: phục vụ cho việc cấu hình như: nguồn database, xác định dung lượng truyền ảnh, thiết lập cho việc gửi email trong.
 ## 4. Các Bước Chạy Ứng Dụng Trên Máy Tính Cá Nhân
 
 ### Yêu cầu
