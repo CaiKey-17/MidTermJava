@@ -457,6 +457,8 @@ Khách hàng - Kết quả nhận được bên email:
 ![image](https://github.com/user-attachments/assets/bc36bd0e-d370-43f9-a69e-b5763ff4cf80)
 - Kết quả: 
 ![image](https://github.com/user-attachments/assets/720f9ff0-6300-4647-a4e7-85d26af5ebe7)
+Khách hàng - sẽ nhận được email:
+![image](https://github.com/user-attachments/assets/63919a2d-7154-4e4c-9672-a963ca2790d8)
 - Test API trường hợp chưa đăng nhập --> Trả về trang đăng nhập để tránh xâm nhập trái phép
 ![image](https://github.com/user-attachments/assets/32c40d02-6f4d-4546-b0b3-080474295186)
 - Kết quả: 
