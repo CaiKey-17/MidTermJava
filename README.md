@@ -468,7 +468,8 @@ Khách hàng - sẽ nhận được email:
 
 
 
-
+## 6. Video demo
+https://drive.google.com/file/d/1qEhSAlerdiTmBeE776Bl5SDwH6dAuurn/view?usp=sharing
 
 
 
