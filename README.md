@@ -85,7 +85,7 @@ spring:
           starttls:
             enable: true
 ```
-- Import data mẫu từ file data.sql:
+- Import data mẫu từ file data.sql
 - Sử dụng ảnh mẫu từ folder images
 - Thay đổi tài khoản admin do hệ thống cung cấp trong /src/main/java/com/example/chuyentrang/DataInitializer.java
 ```sh
