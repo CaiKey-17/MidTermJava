@@ -47,7 +47,7 @@ SpringCommerce là một ứng dụng mua sắm trực tuyến đơn giản, h�
 ## 4. Các Bước Chạy Ứng Dụng Trên Máy Tính Cá Nhân
 
 ### Yêu cầu
-- Java JDK: Phiên bản 11 trở lên.
+- Java JDK: Phiên bản 17 trở lên.
 - Maven: Để xây dựng và quản lý dependencies.
 - MySQL: Để lưu trữ dữ liệu.
 - Postman hoặc CURL: Để kiểm tra API.
