@@ -476,7 +476,7 @@ Khách hàng - sẽ nhận được email:
 ## 6. Video demo
 https://drive.google.com/file/d/1qEhSAlerdiTmBeE776Bl5SDwH6dAuurn/view?usp=sharing
 
-
+> - Video có chất lượng âm thanh hơi nhỏ: Hãy mở loa lớn lên để có thể nghe rõ. Xin lỗi vì sự bất tiện này
 > - Sản phẩm/đồ án chỉ mang tính chất tham khảo, học tập
 > - Không sử dụng vào việc kinh doanh, đạo nhái.
 > - Nguồn tham khảo: https://hades.vn
