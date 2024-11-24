@@ -33,11 +33,7 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-LOCK TABLES `account` WRITE;
-/*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('caoky.sonha@gmail.com','$2a$10$kX/vl91.nikyd1NlKTP2oue3RxTJP9bSf3UzPfMWih6wlULn2IosC');
-/*!40000 ALTER TABLE `account` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `brand`
