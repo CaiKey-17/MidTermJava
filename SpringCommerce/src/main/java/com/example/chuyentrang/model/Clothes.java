@@ -47,6 +47,11 @@ public class Clothes {
         this.brand = brand;
         this.createdDate = LocalDateTime.now();
     }
+    public Clothes(int id, String name, Brand brand) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+    }
 
     @ManyToOne
     @JoinColumn(name = "brand_id", nullable = false)

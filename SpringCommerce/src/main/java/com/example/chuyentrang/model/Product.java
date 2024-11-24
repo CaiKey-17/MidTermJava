@@ -42,6 +42,11 @@ public class Product {
         this.color = color;
         this.size = size;
     }
+    public Product(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
 
     public String getName() {
         return name;
