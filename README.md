@@ -18,9 +18,10 @@ SpringCommerce là một ứng dụng mua sắm trực tuyến đơn giản, h�
 ## 2. Thiết kế
 ### 2.1 Thiết kế database
 #### Sơ đồ ERD
-![ERD_Midterm_java](https://github.com/user-attachments/assets/1cecd6dc-5083-49c1-a513-083a6103844e)
+![image (17)](https://github.com/user-attachments/assets/52430736-a8f5-40c3-a4f1-c09af3f5bda8)
 #### Mô hình quan hệ
-![image (16)](https://github.com/user-attachments/assets/0219b6b5-d0bc-4ece-b931-fb41e68b2a1a)
+![image (18)](https://github.com/user-attachments/assets/c9bc4366-7763-46ae-8ad4-7e26a23b1fbe)
+
 ### 2.2 Thiết kế hệ thống
 Ứng dụng SpringCommerce có các thành phần và cơ sở hạ tầng chính như sau:
 - Frontend: UI (User Interface): Trang web để người dùng xem sản phẩm, giỏ hàng, và đặt hàng.
@@ -472,12 +473,22 @@ Khách hàng - sẽ nhận được email:
 
 
 
+## 6. Unit test
+- Trang chủ:
+![image](https://github.com/user-attachments/assets/c75ace35-079b-41f2-9fce-cd39ce9176ae)
+- Authentication và Authorization:
+![image](https://github.com/user-attachments/assets/0c15f6ed-6a6e-4483-b4f1-21089602971c)
+- Quản trị hệ thống:
+![image](https://github.com/user-attachments/assets/e1917b00-a69d-4ab9-a3bb-ccb3ec57d01c)
 
-## 6. Video demo
+
+
+
+## 7. Video demo
 https://drive.google.com/file/d/1qEhSAlerdiTmBeE776Bl5SDwH6dAuurn/view?usp=sharing
 
-> - Video có chất lượng âm thanh hơi nhỏ: Hãy mở loa lớn lên để có thể nghe rõ. Xin lỗi vì sự bất tiện này
-> - Sản phẩm/đồ án chỉ mang tính chất tham khảo, học tập
+> - Video có chất lượng âm thanh hơi nhỏ: Hãy mở loa lớn lên để có thể nghe rõ. Xin lỗi vì sự bất tiện này!
+> - Sản phẩm/đồ án chỉ mang tính chất tham khảo, học tập.
 > - Không sử dụng vào việc kinh doanh, đạo nhái.
 > - Nguồn tham khảo: https://hades.vn
 
