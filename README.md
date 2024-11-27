@@ -99,8 +99,9 @@ spring:
 - Sử dụng ảnh mẫu từ folder images
 - Thay đổi tài khoản admin do hệ thống cung cấp trong /src/main/java/com/example/chuyentrang/DataInitializer.java
 ```sh
-String email = "...@gmail.com";
-String rawPassword = "...";
+String username = "caoky.sonha@gmail.com";
+String rawPassword = "123";
+String roleName = "ROLE_ADMIN";
 ```
 - Build và chạy ứng dụng:
 ```sh
