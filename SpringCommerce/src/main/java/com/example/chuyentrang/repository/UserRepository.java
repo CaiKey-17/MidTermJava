@@ -10,10 +10,12 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, String> {
-    Optional<User> findByEmail(String email);
 
     @Modifying
-    @Query("UPDATE User u SET u.password = :newPassword WHERE u.email = :email")
-    int updatePasswordByEmail(@Param("email") String email, @Param("newPassword") String newPassword);
+    @Query("UPDATE User u SET u.password = :newPassword WHERE u.username = :username")
+    int updatePasswordByEmail(@Param("username") String username, @Param("newPassword") String newPassword);
+
+    User findByUsername(String username);
+
 }
 

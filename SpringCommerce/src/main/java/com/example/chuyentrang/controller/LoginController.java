@@ -1,11 +1,18 @@
 package com.example.chuyentrang.controller;
 
+import com.example.chuyentrang.config.JwtTokenUtil;
 import com.example.chuyentrang.service.CustomUserDetailsService;
 import com.example.chuyentrang.service.EmailService;
+import com.example.chuyentrang.service.RoleService;
+import com.example.chuyentrang.service.UserService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,9 +21,45 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class LoginController {
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private RoleService roleService;
+
     @GetMapping("/login")
     public String login() {
         return "loginAdmin";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password, Model model, HttpServletResponse response) {
+        boolean authenticated = userService.authenticateUser(username, password);
+        if (authenticated) {
+            try {
+                String role = userService.getUserRole(username); // Lấy vai trò từ UserService
+                String token = JwtTokenUtil.createToken(username, role); // Tạo token với vai trò
+                model.addAttribute("token", token);
+
+                // Add token to the cookie
+                Cookie tokenCookie = new Cookie("token", token);
+                tokenCookie.setHttpOnly(true);
+                System.out.println("Token: " + token);
+                System.out.println("Is token valid: " + JwtTokenUtil.verifyToken(token));
+                System.out.println("Authentication: " + SecurityContextHolder.getContext().getAuthentication());
+
+                tokenCookie.setPath("/");
+                response.addCookie(tokenCookie);
+
+                return "redirect:/admin";
+            } catch (Exception e) {
+                model.addAttribute("error", "Error creating token");
+                return "loginAdmin";
+            }
+        } else {
+            model.addAttribute("error", "Invalid credentials");
+            return "loginAdmin";
+        }
     }
 
 

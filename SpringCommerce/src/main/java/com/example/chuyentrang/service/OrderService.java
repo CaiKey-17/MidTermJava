@@ -43,8 +43,11 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public boolean isEmailExists(String email) {
-        return userRepository.findByEmail(email).isPresent();
+    public boolean isEmailExists(String username) {
+        if (userRepository.findByUsername(username) !=null){
+            return true;
+        }
+        return false;
     }
 
 
