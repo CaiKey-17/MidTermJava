@@ -29,8 +29,6 @@ SpringCommerce là một ứng dụng mua sắm trực tuyến đơn giản, h�
 - Backend: Spring Boot Application: Chịu trách nhiệm cung cấp các API để xử lý yêu cầu từ người dùng.
 - Các Modules của Spring: Bao gồm Spring MVC để quản lý các yêu cầu HTTP, Spring Data JPA để giao tiếp với cơ sở dữ liệu, và Spring Security để bảo vệ ứng dụng.
 - Database MySQL: Lưu trữ dữ liệu về sản phẩm, khách hàng, đơn hàng và các thông tin khác.
-![fcc9fedc-c953-47d0-999b-886698d2c945](https://github.com/user-attachments/assets/0bb7bd9c-0939-47f4-afc0-b324662c91f5)
-
 
 
 ## 3. Cấu Trúc Code
